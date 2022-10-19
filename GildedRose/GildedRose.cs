@@ -14,14 +14,12 @@ namespace GildedRoseKata
         {
             for (var i = 0; i < Items.Count; i++)
             {
+                if (Items[i].Name == "Sulfuras, Hand of Ragnaros") { break; }
                 if (Items[i].Name != "Aged Brie" && Items[i].Name != "Backstage passes to a TAFKAL80ETC concert")
                 {
                     if (Items[i].Quality > 0)
                     {
-                        if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
-                        {
-                            Items[i].Quality = Items[i].Quality - 1;
-                        }
+                        Items[i].Quality = Items[i].Quality - 1;
                     }
                 }
                 else
@@ -51,10 +49,8 @@ namespace GildedRoseKata
                     }
                 }
 
-                if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
-                {
-                    Items[i].SellIn = Items[i].SellIn - 1;
-                }
+                Items[i].SellIn = Items[i].SellIn - 1;
+
 
                 if (Items[i].SellIn < 0)
                 {
@@ -64,10 +60,7 @@ namespace GildedRoseKata
                         {
                             if (Items[i].Quality > 0)
                             {
-                                if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
-                                {
-                                    Items[i].Quality = Items[i].Quality - 1;
-                                }
+                                Items[i].Quality = Items[i].Quality - 1;
                             }
                         }
                         else
