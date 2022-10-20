@@ -191,5 +191,43 @@ namespace GildedRoseTests
             Assert.Equal(11, items[1].SellIn);
             Assert.Equal(11, items[1].Quality);
         }
+
+        [Fact]
+        public void ConjuredTest()
+        {
+            List<Item> items = new List<Item> { new Item { Name = "Conjured", SellIn = 2, Quality = 7 } };
+            GildedRose app = new GildedRose(items);
+            app.UpdateQuality();
+            Assert.Equal(1, items[0].SellIn);
+            Assert.Equal(5, items[0].Quality);
+            app.UpdateQuality();
+            Assert.Equal(0, items[0].SellIn);
+            Assert.Equal(3, items[0].Quality);
+            app.UpdateQuality();
+            Assert.Equal(-1, items[0].SellIn);
+            Assert.Equal(0, items[0].Quality);
+        }
+
+        [Fact]
+        public void ConjuredTestNearQuality0()
+        {
+            List<Item> items = new List<Item> { new Item { Name = "Conjured", SellIn = 2, Quality = 13 } };
+            GildedRose app = new GildedRose(items);
+            app.UpdateQuality();
+            Assert.Equal(1, items[0].SellIn);
+            Assert.Equal(11, items[0].Quality);
+            app.UpdateQuality();
+            Assert.Equal(0, items[0].SellIn);
+            Assert.Equal(9, items[0].Quality);
+            app.UpdateQuality();
+            Assert.Equal(-1, items[0].SellIn);
+            Assert.Equal(5, items[0].Quality);
+            app.UpdateQuality();
+            Assert.Equal(-2, items[0].SellIn);
+            Assert.Equal(1, items[0].Quality);
+            app.UpdateQuality();
+            Assert.Equal(-3, items[0].SellIn);
+            Assert.Equal(0, items[0].Quality);
+        }
     }
 }
