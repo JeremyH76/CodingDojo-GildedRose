@@ -19,6 +19,9 @@ namespace GildedRoseKata
             for (var i = 0; i < Items.Count; i++)
             {
                 if (Legendaries.Contains(Items[i].Name)) { continue; }
+
+                Items[i].SellIn--;
+                
                 if (AgedCheeses.Contains(Items[i].Name))
                 {
                     Items[i].Quality++;
@@ -27,12 +30,12 @@ namespace GildedRoseKata
                 {
                     Items[i].Quality++;
 
-                    if (Items[i].SellIn < 11)
+                    if (Items[i].SellIn < 10)
                     {
                         Items[i].Quality++;
                     }
 
-                    if (Items[i].SellIn < 6)
+                    if (Items[i].SellIn < 5)
                     {
                         Items[i].Quality++;
                     }
@@ -41,9 +44,6 @@ namespace GildedRoseKata
                 {
                     Items[i].Quality--;
                 }
-
-                Items[i].SellIn--;
-
 
                 if (Items[i].SellIn < 0)
                 {
