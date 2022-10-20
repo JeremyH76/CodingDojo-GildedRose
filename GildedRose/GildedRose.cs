@@ -13,6 +13,7 @@ namespace GildedRoseKata
         private static readonly List<string> Legendaries = new List<string>() { "Sulfuras, Hand of Ragnaros" };
         private static readonly List<string> AgedCheeses = new List<string>() { "Aged Brie" };
         private static readonly List<string> BackstagePasses = new List<string>() { "Backstage passes to a TAFKAL80ETC concert" };
+        private static readonly string ConjuredTag = "Conjured";
 
         public void UpdateQuality()
         {
@@ -21,7 +22,7 @@ namespace GildedRoseKata
                 if (Legendaries.Contains(Items[i].Name)) { continue; }
 
                 Items[i].SellIn--;
-                
+
                 if (AgedCheeses.Contains(Items[i].Name))
                 {
                     Items[i].Quality++;
@@ -40,6 +41,10 @@ namespace GildedRoseKata
                         Items[i].Quality++;
                     }
                 }
+                else if (Items[i].Name.Contains(ConjuredTag))
+                {
+                    Items[i].Quality -= 2;
+                }
                 else
                 {
                     Items[i].Quality--;
@@ -54,6 +59,10 @@ namespace GildedRoseKata
                     else if (BackstagePasses.Contains(Items[i].Name))
                     {
                         Items[i].Quality = 0;
+                    }
+                    else if (Items[i].Name.Contains(ConjuredTag))
+                    {
+                        Items[i].Quality -= 2;
                     }
                     else
                     {
