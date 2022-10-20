@@ -10,16 +10,20 @@ namespace GildedRoseKata
             this.Items = Items;
         }
 
+        private static readonly List<string> Legendaries = new List<string>() { "Sulfuras, Hand of Ragnaros" };
+        private static readonly List<string> AgedCheeses = new List<string>() { "Aged Brie" };
+        private static readonly List<string> BackstagePasses = new List<string>() { "Backstage passes to a TAFKAL80ETC concert" };
+
         public void UpdateQuality()
         {
             for (var i = 0; i < Items.Count; i++)
             {
-                if (Items[i].Name == "Sulfuras, Hand of Ragnaros") { continue; }
-                if (Items[i].Name == "Aged Brie")
+                if (Legendaries.Contains(Items[i].Name)) { continue; }
+                if (AgedCheeses.Contains(Items[i].Name))
                 {
                     Items[i].Quality++;
                 }
-                else if (Items[i].Name == "Backstage passes to a TAFKAL80ETC concert")
+                else if (BackstagePasses.Contains(Items[i].Name))
                 {
                     Items[i].Quality++;
 
@@ -43,11 +47,11 @@ namespace GildedRoseKata
 
                 if (Items[i].SellIn < 0)
                 {
-                    if (Items[i].Name == "Aged Brie")
+                    if (AgedCheeses.Contains(Items[i].Name))
                     {
                         Items[i].Quality++;
                     }
-                    else if (Items[i].Name == "Backstage passes to a TAFKAL80ETC concert")
+                    else if (BackstagePasses.Contains(Items[i].Name))
                     {
                         Items[i].Quality = 0;
                     }
