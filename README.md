@@ -8,4 +8,6 @@ Code source initial : https://github.com/emilybache/GildedRose-Refactoring-Kata
 
 Ce Kata montre les points suivants :
 - Refactoring de code existant
-- TDD
+- TDD (avec son utilité lors du refactoring*)
+
+\* : En effet, lors du refactoring de code, le lancement des tests doit être fait à chaque modification, pour être sûr de ne pas avoir changé le comportement de l'algorithme mais l'avoir juste refactorisé.
